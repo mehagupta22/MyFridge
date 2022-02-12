@@ -10,6 +10,7 @@ Access our [Presentation](https://www.canva.com/design/DAE4Gj3QXxY/share/preview
 ## Next Steps/Future Extensions
 * AI to take photos instead of manually inputting information.
 * Either donate or use foods with upcoming best before dates in recipes.
+* Add a pantry (My eFridge and ePantry).
 
 ## References
 * We used Fractal from html5up as a starting/base template [html5up](https://html5up.net/).
