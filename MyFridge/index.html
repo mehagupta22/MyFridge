@@ -67,11 +67,13 @@
 			<div style="min-width: 30%;">
 				<section>
 					<div class="table-wrapper" style="max-height: 256px;">
+						<h5>Currently in the fridge:</h5>
 						<table class="alt" id="fridge-table" style="overflow-y: scroll; overflow-x: hidden; background-color: aliceblue;">
 							<thead>
 								<tr>
 									<th style="color:#4696e5">Food Item</th>
 									<th style="color:#4696e5">Expiration Date</th>
+									<th style="color:#4696e5">Amount Remaining</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -513,6 +515,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
   				const tr = tbody.insertRow();
   				tr.insertCell().innerText = item.foodItem;
 				tr.insertCell().innerText = item.foodExpDate;
+				tr.insertCell().innerText = item.foodAmount;
 			})
 			
 			//Function to save inputted food items.
@@ -531,6 +534,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				const tr = tbody.insertRow();
 				tr.insertCell().innerText = foodObj.foodItem;
 				tr.insertCell().innerText = foodObj.foodExpDate;
+				tr.insertCell().innerText = item.foodAmount;
 			}
 
 		</script>
