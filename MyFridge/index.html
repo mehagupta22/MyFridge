@@ -34,19 +34,16 @@
 								<div class="col-6 col-12-xsmall">
 									<input type="text" name="demo-name" id="food-item" value="" placeholder="Food Item" required/>
 								</div>
+								<div class="col-6 col-12-xsmall">
+									<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" />
+								</div>
 								<div class="row">
-									<div class="col-6 col-12-xsmall">
-										<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" />
-									</div>
-									<div class="col-6 col-12-xsmall" style="padding-left: 0px;">
-										<input type="text" name="demo-email" id="food-exp-date" value="" placeholder="Expiration Date - optional" />
-									</div>
 									<form action="#" onsubmit="return false;" id="extra-food-info"></form>
 										<div class="col-12">
 											<select id="has-exp" name="has-exp" required>
 												<option value="">Does this food item have an expiration date labelled?</option>
 												<option value="Yes">Yes</option>
-												<option value="No">No</option>
+												<option value="No" >No</option>
 											<input style="margin-top: 1%;" type="submit" onclick="addExpirationInput();" />
 										</div>
 									</form>	
