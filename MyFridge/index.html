@@ -22,7 +22,7 @@
 				<ul class="actions">
 					<!-- Input food information: food, quantity, expiration date (optional) -->
 					<div class="col">
-						<form action="#">
+						<form action="#" id="food-info" onsubmit="return false;">
 							<div class="col gtr-uniform">
 								<div class="col-6 col-12-xsmall">
 									<input type="text" name="demo-name" id="food-item" value="" placeholder="Food Item" required/>
@@ -31,26 +31,19 @@
 									<div class="col-6 col-12-xsmall" flex="50">
 										<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" />
 									</div>
-									<div class="col-6 col-12-xsmall" flex="50">
-										<input type="text" name="demo-email" id="food-exp-date" value="" placeholder="Expiration Date - optional" />
-									</div>
+									<form action="#" onsubmit="return false;" id="extra-food-info"></form>
+										<div class="col-12">
+											<select id="has-exp" name="has-exp" required>
+												<option value="">Does this food item have an expiration date labelled?</option>
+												<option value="Yes">Yes</option>
+												<option value="No">No</option>
+											<input style="margin-top: 1%;" type="submit" onclick="addExpirationInput();" />
+										</div>
+									</form>	
 								</div>
 								<div>
 									<a href="#" class="button primary">Save food item</a>
 								</div>
-							</div>
-						</form>
-						<form action="#" onsubmit="return false;">
-							<div class="col-12">
-								<select name="food-type" id="food-type">
-									<option value="">Select Food Type</option>
-									<option value="Stem">Edible plant stem – celery, asparagus</option>
-									<option value="Marrow">Marrow – cucumber, zucchini</option>
-									<option value="Allium">Allium - garlic, onion</option>
-									<option value="Leafy">Leafy Greens - lettuce, spinach</option>
-									<option value="Cruciferous">Cruciferous - broccoli, cabbage</option>
-								</select>
-								<input style="margin-top: 1%;" type="submit" onclick="addExpiration();" />
 							</div>
 						</form>
 						<!-- Button will lead to more information on how to use My eFridge -->
@@ -453,10 +446,36 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 		<!-- Scripts -->
 			<script>
+				function addExpirationInput() {
+
+					var has_exp = document.getElementById("has-exp").value;
+
+					if (has_exp=="Yes") {
+						var node = "<div class='col-6 col-12-xsmall' flex='50'>\
+										<input type='text' name='demo-email' id='food-exp-date' value='' placeholder='Expiration Date' />\
+										<input style='margin-top: 1%;' type='submit' onclick='addExpiration();' />\
+									<div/>";                          
+						document.getElementById ("food-info").insertAdjacentHTML('beforeEnd', node);
+					}
+					else{
+						var node = "<div class='col-12'>\
+										<select name='food-type' id='food-type'>\
+										<option value=''>Select Food Type</option>\
+										<option value='Stem'>Edible plant stem – celery, asparagus</option>\
+										<option value='Marrow'>Marrow – cucumber, zucchini</option>\
+										<option value='Allium'>Allium - garlic, onion</option>\
+										<option value='Leafy'>Leafy Greens - lettuce, spinach</option>\
+										<option value='Cruciferous'>Cruciferous - broccoli, cabbage</option>\
+									</select>\
+									<input style='margin-top: 1%;' type='submit' onclick='addExpiration();' />\
+								</div>";                        
+						document.getElementById ("food-info").insertAdjacentHTML('beforeEnd', node);
+					}
+				}
 				function addExpiration() {
-							var optional_expiration = document.getElementById("food-exp-date").value;
+							var optional_expiration = document.getElementById("food-exp-date");
 							var input = document.getElementById("food-item").value.toLowerCase();
-							if (optional_expiration==""){
+							if (optional_expiration==null){
 								var type = document.getElementById("food-type").value;
 								var expires_in = 0;
 								switch(type){
@@ -479,7 +498,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 								alert("Hey there! That " + input + " expires in " + expires_in + " days.");
 							}
 							else {
-								alert("Hey there! That " + input + " expires on " + optional_expiration + ".");
+								alert("Hey there! That " + input + " expires on " + optional_expiration.value + ".");
 							}
 							
 						}
