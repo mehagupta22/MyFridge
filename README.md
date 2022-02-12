@@ -9,5 +9,5 @@ Access our [Presentation](https://www.canva.com/design/DAE4Gj3QXxY/share/preview
 * Either donate or use foods with upcoming best before dates in recipes.
 
 ## References
-[html5up](https://html5up.net/)  
-[RecipeGPT](https://recipegpt.org/?fbclid=IwAR0ID9_0-oNQO0b7ekNLennwAMjm6_jgFdvbxLB3yD1ZBOh16UMShcREE0U)
+* We used Fractal from html5up as a starting/base template [html5up](https://html5up.net/).
+* We leveraged RecipeGPT for our recipe generator [RecipeGPT](https://recipegpt.org/?fbclid=IwAR0ID9_0-oNQO0b7ekNLennwAMjm6_jgFdvbxLB3yD1ZBOh16UMShcREE0U).
