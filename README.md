@@ -20,3 +20,6 @@ Access our [Presentation](https://www.canva.com/design/DAE4Gj3QXxY/share/preview
 * We used Fractal from html5up as a starting/base template [html5up](https://html5up.net/).
 * We leveraged RecipeGPT for our recipe generator [RecipeGPT](https://recipegpt.org/?fbclid=IwAR0ID9_0-oNQO0b7ekNLennwAMjm6_jgFdvbxLB3yD1ZBOh16UMShcREE0U).
 * Fridge image from [here](https://creazilla.com/nodes/69624-refrigerator-clipart).
+* Inside fridge image from [here](https://www.heart.org/en/healthy-living/healthy-eating/cooking-skills/storing/using-your-fridge-the-right-way).
+* Calendar image from [here](https://www.istockphoto.com/illustrations/calendar-cartoon).
+* Food image for recipe from [here](https://www.alamy.com/cooking-in-home-pans-boiling-pot-and-fried-pan-set-cartoon-steel-cooking-pots-with-boiling-soup-and-fried-egg-concept-of-home-dinner-on-stove-flaming-gas-burner-heats-kitchen-ob-image425238757.html).
