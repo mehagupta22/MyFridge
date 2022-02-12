@@ -18,7 +18,7 @@
 		<header id="header">
 			<div class="content">
 				<h1><a href="#">My eFridge</a></h1>
-				<p>Reduce food waste and save money!</p>
+				<p>Reduce waste, learn new recipes, save money!</p>
 				<ul class="actions">
 					<!-- Input food information: food, quantity, expiration date (optional) -->
 					<div class="col">
@@ -477,6 +477,15 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 							}
 							alert("Hey there! That " + input + " expires in " + expires_in + " days.");
 						}
+
+				function saveFoodItem() {
+					var foodObj = { 
+						foodItem: document.getElementById("food-item").value ? document.getElementById("food-item").value : '', 
+						foodAmount: document.getElementById("food-amt").value ? document.getElementById("food-amt").value : '', 
+						foodExpDate: document.getElementById("food-exp-date").value ? document.getElementById("food-exp-date").value : ''
+					};
+					//Add new foodObj to list of all foodObj in fridge
+				}
 			</script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
