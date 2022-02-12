@@ -408,13 +408,13 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 					if (has_exp=="Yes") {
 						var node = "<div class='col-6 col-12-xsmall' flex='50'>\
-										<input type='text' name='demo-email' id='food-exp-date' value='' placeholder='Expiration Date' />\
+										<input type='text' name='demo-email' id='food-exp-date' value='' placeholder='Expiration Date mm/dd/yyyy' style='margin-top: 1%;'/>\
 									<div/>";                          
 						document.getElementById ("food-form").insertAdjacentHTML('beforeEnd', node);
 					}
 					else{
 						var node = "<div class='col-12'>\
-										<select name='food-type' id='food-type'>\
+										<select name='food-type' id='food-type' style='margin-top: 1%;'>\
 										<option value=''>Select Food Type</option>\
 										<option value='Stem'>Edible plant stem – celery, asparagus</option>\
 										<option value='Marrow'>Marrow – cucumber, zucchini</option>\
