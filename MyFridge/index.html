@@ -22,6 +22,21 @@
 					template brought to you by <a href="http://html5up.net">HTML5 UP</a></p>
 					<ul class="actions">
 						<li><a href="#" class="button primary icon solid fa-download">Download</a></li>
+						<form action="#" onsubmit="return false;">
+								<div class="col-12">
+									<select name="food-type" id="food-type">
+										<option value="">Select Food Type</option>
+										<option value="Stem">Edible plant stem – celery, asparagus</option>
+										<option value="Marrow">Marrow – cucumber, zucchini</option>
+										<option value="Allium">Allium - garlic, onion</option>
+										<option value="Leafy">Leafy Greens - lettuce, spinach</option>
+										<option value="Cruciferous">Cruciferous - broccoli, cabbage</option>
+									</select>
+									<input style="margin-top: 1%;" type="submit" onclick="addExpiration();" />
+								</div>
+							</div>
+						</form>
+						
 						<li><a href="#one" class="button icon solid fa-chevron-down scrolly">Learn More</a></li>
 					</ul>
 				</div>
@@ -420,6 +435,32 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			</footer>
 
 		<!-- Scripts -->
+			<script>
+				function addExpiration() {
+							var type = document.getElementById("food-type").value;
+							//var input = document.getElementById("input").value; TODO:need variable for input
+							var input = "food";
+							var expires_in = 0;
+							switch(type){
+								case "Stem":
+									expires_in = 4;
+									break;
+								case "Marrow":
+									expires_in = 5;
+									break;
+								case "Allium":
+									expires_in = 30;
+									break;
+								case "Leafy":
+									expires_in = 5;
+									break;
+								case "Cruciferous":
+									expires_in = 5;
+									
+							}
+							alert("Hey there! That " + input + " expires in " + expires_in + " days.");
+						}
+			</script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
