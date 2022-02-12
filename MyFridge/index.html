@@ -34,10 +34,10 @@
 								<div class="col-6 col-12-xsmall">
 									<input type="text" name="demo-name" id="food-item" value="" placeholder="Food Item" required/>
 								</div>
+								<div class="col-6 col-12-xsmall">
+									<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" />
+								</div>
 								<div class="row">
-									<div class="col-6 col-12-xsmall">
-										<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" />
-									</div>
 									<form action="#" onsubmit="return false;" id="extra-food-info">
 										<div class="col-12">
 											<select id="has-exp" name="has-exp" required>
@@ -63,6 +63,7 @@
 			</div>
 			<!-- Table to display information in fridge -->
 			<div style="min-width: 30%;">
+				<iframe src="https://calendar.google.com/calendar/embed?height=300&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&showTitle=0&showNav=1&showPrint=0&showTabs=0&showTz=0&showCalendars=0&src=NGM3ZTVxZGNjb3Vqbmt0cGcwbThjbW1rMW9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%237986CB" style="border-width:0" width="400" height="300" frameborder="0" scrolling="no"></iframe>
 				<section>
 					<div class="table-wrapper" style="max-height: 256px;">
 						<h5>Currently in the fridge:</h5>
@@ -514,8 +515,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 			// Global variable to hold all items in the fridge.
 			var allFridgeItems = [
-				{foodItem:"test1", foodAmount: "1", foodExpDate: "Monday"}, 
-				{foodItem:"test2", foodAmount: "2", foodExpDate: "Tuesday"}];
+				{foodItem:"e.g. eggs", foodAmount: "1", foodExpDate: "MM/DD/YYYY"}, 
+				{foodItem:"e.g. apples", foodAmount: "2", foodExpDate: "MM/DD/YYYY"}];
 
 			// Initial population of the fridge table with allFridge items.
 			const tbody = document.querySelector('tbody');
