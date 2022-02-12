@@ -30,7 +30,7 @@
 					<div class="col">
 						<form action="#" id="food-info" onsubmit="return false;">
 							<h4>Enter food item information below:</h4>
-							<div class="col gtr-uniform">
+							<div class="col gtr-uniform" id="food-form">
 								<div class="col-6 col-12-xsmall">
 									<input type="text" name="demo-name" id="food-item" value="" placeholder="Food Item" required/>
 								</div>
@@ -38,20 +38,20 @@
 									<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" />
 								</div>
 								<div class="row">
-									<form action="#" onsubmit="return false;" id="extra-food-info"></form>
+									<form action="#" onsubmit="return false;" id="extra-food-info">
 										<div class="col-12">
 											<select id="has-exp" name="has-exp" required>
 												<option value="">Does this food item have an expiration date labelled?</option>
 												<option value="Yes">Yes</option>
-												<option value="No" >No</option>
-											<input style="margin-top: 1%;" type="submit" onclick="addExpirationInput();" />
+												<option value="No">No</option>
+											</select>
+											<input style="margin-top: 1%;" type="submit" onclick="addExpirationInput();" id="set-input" />
 										</div>
 									</form>	
 								</div>
-								<p>
-								<div>
-									<a href="#" class="button primary" onclick="saveFoodItem(); addExpiration();">Save food item</a>
-								</div>
+							</div>
+							<div>
+								<a href="#" class="button primary" onclick="addExpiration(); saveFoodItem();">Save food item</a>
 							</div>
 						</form>
 						<!-- Button will lead to recipe generation website -->
@@ -399,6 +399,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 		<!-- Scripts -->
 		<script>
+				var expires_in = 0;//global variable to store when an item expires
+				var expiration_date;
 				function addExpirationInput() {
 
 					var has_exp = document.getElementById("has-exp").value;
@@ -406,9 +408,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					if (has_exp=="Yes") {
 						var node = "<div class='col-6 col-12-xsmall' flex='50'>\
 										<input type='text' name='demo-email' id='food-exp-date' value='' placeholder='Expiration Date' />\
-										<input style='margin-top: 1%;' type='submit' onclick='addExpiration();' />\
 									<div/>";                          
-						document.getElementById ("food-info").insertAdjacentHTML('beforeEnd', node);
+						document.getElementById ("food-form").insertAdjacentHTML('beforeEnd', node);
 					}
 					else{
 						var node = "<div class='col-12'>\
@@ -420,17 +421,18 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 										<option value='Leafy'>Leafy Greens - lettuce, spinach</option>\
 										<option value='Cruciferous'>Cruciferous - broccoli, cabbage</option>\
 									</select>\
-									<input style='margin-top: 1%;' type='submit' onclick='addExpiration();' />\
 								</div>";                        
-						document.getElementById ("food-info").insertAdjacentHTML('beforeEnd', node);
+						document.getElementById ("food-form").insertAdjacentHTML('beforeEnd', node);
 					}
+					var old_submit = document.getElementById("set-input");
+					old_submit.remove();
 				}
 				function addExpiration() {
-							var optional_expiration = document.getElementById("food-exp-date");
+							var optional_expiration = document.getElementById("has-exp");
 							var input = document.getElementById("food-item").value.toLowerCase();
-							if (optional_expiration==null){
+							var has_exp = document.getElementById("has-exp").value;
+							if (has_exp=="No"){
 								var type = document.getElementById("food-type").value;
-								var expires_in = 0;
 								switch(type){
 									case "Stem":
 										expires_in = 4;
@@ -448,11 +450,19 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 										expires_in = 5;
 										
 								}
-								alert("Hey there! That " + input + " expires in " + expires_in + " days.");
+								var today= new Date();
+								expiration_date = new Date();
+								expiration_date.setDate(today.getDate()+expires_in);
+								var dd = String(expiration_date.getDate()).padStart(2, '0');
+								var mm = String(expiration_date.getMonth() + 1).padStart(2, '0'); //January is 0!
+								var yyyy = expiration_date.getFullYear();
+								expiration_date = mm + '/' + dd + '/' + yyyy;
 							}
-							else {
-								alert("Hey there! That " + input + " expires on " + optional_expiration.value + ".");
+							else{
+								expiration_date = document.getElementById("food-exp-date").value;
 							}
+							
+							alert("Hey there! That " + input + " expires on " + expiration_date + ".");
 							
 			}
 
@@ -476,7 +486,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				var foodObj = { 
 					foodItem: document.getElementById("food-item").value ? document.getElementById("food-item").value : '', 
 					foodAmount: document.getElementById("food-amt").value ? document.getElementById("food-amt").value : '', 
-					foodExpDate: document.getElementById("food-exp-date").value ? document.getElementById("food-exp-date").value : ''
+					foodExpDate: expiration_date
 				};
 
 				//Add new object to allFridgeItems.
