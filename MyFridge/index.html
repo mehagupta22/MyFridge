@@ -13,6 +13,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" href="images/fridge.png">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -32,12 +33,12 @@
 							<h4>Enter food item information below:</h4>
 							<div class="col gtr-uniform" id="food-form">
 								<div class="col-6 col-12-xsmall">
-									<input type="text" name="demo-name" id="food-item" value="" placeholder="Food Item" required/>
+									<input type="text" name="demo-name" id="food-item" value="" placeholder="Food Item" style="margin-top: 1%;" required/>
 								</div>
 								<div class="col-6 col-12-xsmall">
-									<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" />
+									<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" style="margin-top: 1%;"/>
 								</div>
-								<div class="row">
+								<div class="row" style="margin-top: 1%;">
 									<form action="#" onsubmit="return false;" id="extra-food-info">
 										<div class="col-12">
 											<select id="has-exp" name="has-exp" required>
@@ -51,11 +52,11 @@
 								</div>
 							</div>
 							<div>
-								<a href="#" class="button primary" onclick="addExpiration(); saveFoodItem();">Save food item</a>
+								<a href="#" class="button primary" style="margin-bottom: 1%;" onclick="addExpiration(); saveFoodItem();">Save food item</a>
 							</div>
 						</form>
 						<!-- Button will lead to recipe generation website -->
-						<li><a button onclick="location.href = 'https://recipegpt.org/';" target="_blank" id="recipeButton" href="#one" class="button primary">Make a recipe with what you have!</a></li>
+						<li><a button onclick="location.href = 'https://recipegpt.org/';" target="_blank" id="recipeButton" href="#one" class="button primary" style="margin-bottom: 1%;">Make a recipe with what you have!</a></li>
 						<!-- Button will lead to more information on how to use My eFridge -->
 						<li><a href="#one" class="button icon solid fa-chevron-down scrolly">Learn More</a></li>
 					</div>
