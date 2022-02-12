@@ -38,7 +38,7 @@
 									<div class="col-6 col-12-xsmall" flex="50">
 										<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" />
 									</div>
-									<form action="#" onsubmit="return false;" id="extra-food-info"></form>
+									<form action="#" onsubmit="return false;" id="extra-food-info">
 										<div class="col-12">
 											<select id="has-exp" name="has-exp" required>
 												<option value="">Does this food item have an expiration date labelled?</option>
@@ -47,19 +47,6 @@
 											<input style="margin-top: 1%;" type="submit" onclick="addExpirationInput();" />
 										</div>
 									</form>	
-								</div>
-								<div>
-									<div class="col-12">
-										<select name="food-type" id="food-type">
-											<option value="">Select Food Type</option>
-											<option value="Stem">Edible plant stem – celery, asparagus</option>
-											<option value="Marrow">Marrow – cucumber, zucchini</option>
-											<option value="Allium">Allium - garlic, onion</option>
-											<option value="Leafy">Leafy Greens - lettuce, spinach</option>
-											<option value="Cruciferous">Cruciferous - broccoli, cabbage</option>
-										</select>
-										<!--<input style="margin-top: 1%;" type="submit" onclick="addExpiration();" />-->
-									</div>
 								</div>
 								<div>
 									<a href="#" class="button primary" onclick="saveFoodItem(); addExpiration();">Save food item</a>
