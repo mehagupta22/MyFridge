@@ -19,7 +19,7 @@
 
 		<!-- Header -->
 		<header id="header">
-			<div class="content">
+			<div class="content" style="max-width: 40%;">
 				<h1>
 					<a href="#">My eFridge</a>
 					<img src="images/fridge.png" alt="" />
@@ -56,15 +56,15 @@
 								</div>
 							</div>
 						</form>
-						<!-- Button will lead to more information on how to use My eFridge -->
-						<li><a href="#one" class="button icon solid fa-chevron-down scrolly">Learn More</a></li>
 						<!-- Button will lead to recipe generation website -->
 						<li><a button onclick="location.href = 'https://recipegpt.org/';" target="_blank" id="recipeButton" href="#one" class="button primary">Make a recipe with what you have!</a></li>
+						<!-- Button will lead to more information on how to use My eFridge -->
+						<li><a href="#one" class="button icon solid fa-chevron-down scrolly">Learn More</a></li>
 					</div>
 				</ul>
 			</div>
 			<!-- Table to display information in fridge -->
-			<div>
+			<div style="min-width: 30%;">
 				<section>
 					<div class="table-wrapper" style="max-height: 256px;">
 						<table class="alt" id="fridge-table" style="overflow-y: scroll; overflow-x: hidden; background-color: aliceblue;">
@@ -75,28 +75,11 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Item Two</td>
-									<td>Vis ac commodo adipiscing arcu aliquet.</td>
-								</tr>
-								<tr>
-									<td>Item Three</td>
-									<td> Morbi faucibus arcu accumsan lorem.</td>
-								</tr>
-								<tr>
-									<td>Item Four</td>
-									<td>Vitae integer tempus condimentum.</td>
-								</tr>
-								<tr>
-									<td>Item Five</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
-								</tr>
 							</tbody>
 						</table>
 					</div>
 				</section>
 			</div>
-			<!--<div class="image phone"><div class="inner"><img src="images/screen.jpg" alt="" /></div></div>-->
 		</header>
 
 		<!-- About and How to Use My eFridge -->
@@ -108,12 +91,6 @@
 				My eFridge allows businesses and household to keep track of items in their fridge.<br>
 				It does this through the functionality below.
 			</p>
-			<!--To be removed later:-->
-			<!--<ul class="icons major">
-				<li><span class="icon solid fa-camera-retro"><span class="label">Shoot</span></span></li>
-				<li><span class="icon solid fa-sync"><span class="label">Process</span></span></li>
-				<li><span class="icon solid fa-cloud"><span class="label">Upload</span></span></li>
-			</ul>-->
 		</section>
 
 		<!-- Explanation of My eFridge functionality -->
@@ -148,16 +125,6 @@
 						</p>
 					</div>
 				</section>
-				<!-- To be removed: -->
-				<!--<section class="special">
-					<ul class="icons labeled">
-						<li><span class="icon solid fa-camera-retro"><span class="label">Ipsum lorem accumsan</span></span></li>
-						<li><span class="icon solid fa-sync"><span class="label">Sed vehicula elementum</span></span></li>
-						<li><span class="icon solid fa-cloud"><span class="label">Elit fusce consequat</span></span></li>
-						<li><span class="icon solid fa-code"><span class="label">Lorem nullam tempus</span></span></li>
-						<li><span class="icon solid fa-desktop"><span class="label">Adipiscing amet sapien</span></span></li>
-					</ul>
-				</section>-->
 			</div>
 		</section>
 
@@ -496,17 +463,11 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 		<!-- Footer -->
 		<footer id="footer">
-			<!-- To be removed -->
-			<!--<ul class="icons">
-				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-			</ul>-->
 			<p class="copyright">&copy; My eFridge. Credits: <a href="http://html5up.net">HTML5 UP</a></p>
 		</footer>
 
 		<!-- Scripts -->
-			<script>
+		<script>
 				function addExpirationInput() {
 
 					var has_exp = document.getElementById("has-exp").value;
@@ -564,21 +525,35 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 							
 			}
 
+			// Global variable to hold all items in the fridge.
 			var allFridgeItems = [
 				{foodItem:"test1", foodAmount: "1", foodExpDate: "Monday"}, 
 				{foodItem:"test2", foodAmount: "2", foodExpDate: "Tuesday"}];
+
+			// Initial population of the fridge table with allFridge items.
+			const tbody = document.querySelector('tbody');
+			allFridgeItems.forEach(item => {
+  				const tr = tbody.insertRow();
+  				tr.insertCell().innerText = item.foodItem;
+				tr.insertCell().innerText = item.foodExpDate;
+			})
 			
+			//Function to save inputted food items.
 			function saveFoodItem() {
-				console.log(allFridgeItems);
 				var foodObj = { 
 					foodItem: document.getElementById("food-item").value ? document.getElementById("food-item").value : '', 
 					foodAmount: document.getElementById("food-amt").value ? document.getElementById("food-amt").value : '', 
 					foodExpDate: document.getElementById("food-exp-date").value ? document.getElementById("food-exp-date").value : ''
 				};
+
+				//Add new object to allFridgeItems.
 				allFridgeItems.push(foodObj);
-				console.log(foodObj);
-				console.log(allFridgeItems);
-				//Add new foodObj to list of all foodObj in fridge
+
+				//Add new object to fridge table.
+				const tbody = document.querySelector('tbody');
+				const tr = tbody.insertRow();
+				tr.insertCell().innerText = foodObj.foodItem;
+				tr.insertCell().innerText = foodObj.foodExpDate;
 			}
 
 		</script>
