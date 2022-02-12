@@ -259,53 +259,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					</section>
 
 					<section>
-						<h4>Table</h4>
-						<h5>Default</h5>
-						<div class="table-wrapper">
-							<table>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Item One</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Two</td>
-										<td>Vis ac commodo adipiscing arcu aliquet.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Three</td>
-										<td> Morbi faucibus arcu accumsan lorem.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Four</td>
-										<td>Vitae integer tempus condimentum.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Five</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="2"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
-
 						<h5>Alternate</h5>
 						<div class="table-wrapper">
 							<table class="alt">
@@ -505,8 +458,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 			// Global variable to hold all items in the fridge.
 			var allFridgeItems = [
-				{foodItem:"e.g. eggs", foodAmount: "1", foodExpDate: "MM/DD/YYYY"}, 
-				{foodItem:"e.g. apples", foodAmount: "2", foodExpDate: "MM/DD/YYYY"}];
+				{foodItem:"eggs", foodAmount: "12", foodExpDate: "02/25/2022"}, 
+				{foodItem:"apples", foodAmount: "2", foodExpDate: "02/20/2022"},
+				{foodItem:"milk", foodAmount: "2", foodExpDate: "02/20/2022"}];
 
 			// Initial population of the fridge table with allFridge items.
 			const tbody = document.querySelector('tbody');
