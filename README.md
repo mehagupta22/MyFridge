@@ -5,6 +5,8 @@ This is a project for ElleHacks 2022 which took place February 11, 2022, to Febr
   
 Insert image here.  
   
+Brief description of our project. Can be used commercially (e.g., by restaurants) or for individual households.
+  
 Access our [Presentation](https://www.canva.com/design/DAE4Gj3QXxY/share/preview?token=mbbr6ODfg2y0uqloGyu-UA&role=EDITOR&utm_content=DAE4Gj3QXxY&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton#5).
 
 ## Next Steps/Future Extensions
