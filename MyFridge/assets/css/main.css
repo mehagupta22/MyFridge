@@ -3626,7 +3626,8 @@ input, select, textarea {
 		-webkit-justify-content: center;
 		-ms-justify-content: center;
 		justify-content: center;
-		background-image: url("images/overlay.png"), url("images/pattern-size1.svg");
+		background-size: cover;
+		background-repeat: no-repeat;
 		background-position: top left, center center;
 		background-attachment: fixed, fixed;
 		background-size: auto, cover;

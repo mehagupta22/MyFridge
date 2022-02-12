@@ -19,3 +19,4 @@ Access our [Presentation](https://www.canva.com/design/DAE4Gj3QXxY/share/preview
 ## References
 * We used Fractal from html5up as a starting/base template [html5up](https://html5up.net/).
 * We leveraged RecipeGPT for our recipe generator [RecipeGPT](https://recipegpt.org/?fbclid=IwAR0ID9_0-oNQO0b7ekNLennwAMjm6_jgFdvbxLB3yD1ZBOh16UMShcREE0U).
+* Fridge image from [here](https://creazilla.com/nodes/69624-refrigerator-clipart).
