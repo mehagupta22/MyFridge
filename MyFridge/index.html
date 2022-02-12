@@ -35,10 +35,10 @@
 									<input type="text" name="demo-name" id="food-item" value="" placeholder="Food Item" required/>
 								</div>
 								<div class="row">
-									<div class="col-6 col-12-xsmall" flex="50">
+									<div class="col-6 col-12-xsmall">
 										<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" />
 									</div>
-									<div class="col-6 col-12-xsmall" flex="50">
+									<div class="col-6 col-12-xsmall" style="padding-left: 0px;">
 										<input type="text" name="demo-email" id="food-exp-date" value="" placeholder="Expiration Date - optional" />
 									</div>
 								</div>
@@ -70,8 +70,8 @@
 			<!-- Table to display information in fridge -->
 			<div>
 				<section>
-					<div class="table-wrapper">
-						<table class="alt" style="overflow-y: scroll; overflow-x: hidden; background-color: aliceblue;">
+					<div class="table-wrapper" style="max-height: 256px;">
+						<table class="alt" id="fridge-table" style="overflow-y: scroll; overflow-x: hidden; background-color: aliceblue;">
 							<thead>
 								<tr>
 									<th style="color:#4696e5">Food Item</th>
@@ -79,10 +79,6 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Item One</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
-								</tr>
 								<tr>
 									<td>Item Two</td>
 									<td>Vis ac commodo adipiscing arcu aliquet.</td>
@@ -545,15 +541,23 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 							
 			}
 
+			var allFridgeItems = [
+				{foodItem:"test1", foodAmount: "1", foodExpDate: "Monday"}, 
+				{foodItem:"test2", foodAmount: "2", foodExpDate: "Tuesday"}];
+			
 			function saveFoodItem() {
+				console.log(allFridgeItems);
 				var foodObj = { 
 					foodItem: document.getElementById("food-item").value ? document.getElementById("food-item").value : '', 
 					foodAmount: document.getElementById("food-amt").value ? document.getElementById("food-amt").value : '', 
 					foodExpDate: document.getElementById("food-exp-date").value ? document.getElementById("food-exp-date").value : ''
 				};
+				allFridgeItems.push(foodObj);
 				console.log(foodObj);
+				console.log(allFridgeItems);
 				//Add new foodObj to list of all foodObj in fridge
 			}
+
 		</script>
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>
