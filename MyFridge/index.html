@@ -36,21 +36,21 @@
 									</div>
 								</div>
 								<div>
-									<a href="#" class="button primary" onclick="saveFoodItem();">Save food item</a>
+									<div class="col-12">
+										<select name="food-type" id="food-type">
+											<option value="">Select Food Type</option>
+											<option value="Stem">Edible plant stem – celery, asparagus</option>
+											<option value="Marrow">Marrow – cucumber, zucchini</option>
+											<option value="Allium">Allium - garlic, onion</option>
+											<option value="Leafy">Leafy Greens - lettuce, spinach</option>
+											<option value="Cruciferous">Cruciferous - broccoli, cabbage</option>
+										</select>
+										<!--<input style="margin-top: 1%;" type="submit" onclick="addExpiration();" />-->
+									</div>
 								</div>
-							</div>
-						</form>
-						<form action="#" onsubmit="return false;">
-							<div class="col-12">
-								<select name="food-type" id="food-type">
-									<option value="">Select Food Type</option>
-									<option value="Stem">Edible plant stem – celery, asparagus</option>
-									<option value="Marrow">Marrow – cucumber, zucchini</option>
-									<option value="Allium">Allium - garlic, onion</option>
-									<option value="Leafy">Leafy Greens - lettuce, spinach</option>
-									<option value="Cruciferous">Cruciferous - broccoli, cabbage</option>
-								</select>
-								<input style="margin-top: 1%;" type="submit" onclick="addExpiration();" />
+								<div>
+									<a href="#" class="button primary" onclick="saveFoodItem(); addExpiration();">Save food item</a>
+								</div>
 							</div>
 						</form>
 						<!-- Button will lead to more information on how to use My eFridge -->
