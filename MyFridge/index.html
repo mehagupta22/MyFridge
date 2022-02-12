@@ -28,7 +28,7 @@
 				<ul class="actions">
 					<!-- Input food information: food, quantity, expiration date (optional), type -->
 					<div class="col">
-						<form action="#">
+						<form action="#" id="food-info" onsubmit="return false;">
 							<h4>Enter food item information below:</h4>
 							<div class="col gtr-uniform">
 								<div class="col-6 col-12-xsmall">
@@ -41,6 +41,15 @@
 									<div class="col-6 col-12-xsmall" style="padding-left: 0px;">
 										<input type="text" name="demo-email" id="food-exp-date" value="" placeholder="Expiration Date - optional" />
 									</div>
+									<form action="#" onsubmit="return false;" id="extra-food-info"></form>
+										<div class="col-12">
+											<select id="has-exp" name="has-exp" required>
+												<option value="">Does this food item have an expiration date labelled?</option>
+												<option value="Yes">Yes</option>
+												<option value="No">No</option>
+											<input style="margin-top: 1%;" type="submit" onclick="addExpirationInput();" />
+										</div>
+									</form>	
 								</div>
 								<div>
 									<div class="col-12">
@@ -510,34 +519,61 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 		</footer>
 
 		<!-- Scripts -->
-		<script>
-			function addExpiration() {
-				var optional_expiration = document.getElementById("food-exp-date").value;
-				var input = document.getElementById("food-item").value.toLowerCase();
-				if (optional_expiration==""){
-					var type = document.getElementById("food-type").value;
-					var expires_in = 0;
-					switch(type){
-						case "Stem":
-							expires_in = 4;
-							break;
-						case "Marrow":
-							expires_in = 5;
-							break;
-						case "Allium":
-							expires_in = 30;
-							break;
-						case "Leafy":
-							expires_in = 5;
-							break;
-						case "Cruciferous":
-							expires_in = 5;				
+			<script>
+				function addExpirationInput() {
+
+					var has_exp = document.getElementById("has-exp").value;
+
+					if (has_exp=="Yes") {
+						var node = "<div class='col-6 col-12-xsmall' flex='50'>\
+										<input type='text' name='demo-email' id='food-exp-date' value='' placeholder='Expiration Date' />\
+										<input style='margin-top: 1%;' type='submit' onclick='addExpiration();' />\
+									<div/>";                          
+						document.getElementById ("food-info").insertAdjacentHTML('beforeEnd', node);
 					}
-					alert("Hey there! That " + input + " expires in " + expires_in + " days.");
+					else{
+						var node = "<div class='col-12'>\
+										<select name='food-type' id='food-type'>\
+										<option value=''>Select Food Type</option>\
+										<option value='Stem'>Edible plant stem – celery, asparagus</option>\
+										<option value='Marrow'>Marrow – cucumber, zucchini</option>\
+										<option value='Allium'>Allium - garlic, onion</option>\
+										<option value='Leafy'>Leafy Greens - lettuce, spinach</option>\
+										<option value='Cruciferous'>Cruciferous - broccoli, cabbage</option>\
+									</select>\
+									<input style='margin-top: 1%;' type='submit' onclick='addExpiration();' />\
+								</div>";                        
+						document.getElementById ("food-info").insertAdjacentHTML('beforeEnd', node);
+					}
 				}
-				else {
-					alert("Hey there! That " + input + " expires on " + optional_expiration + ".");
-				}
+				function addExpiration() {
+							var optional_expiration = document.getElementById("food-exp-date");
+							var input = document.getElementById("food-item").value.toLowerCase();
+							if (optional_expiration==null){
+								var type = document.getElementById("food-type").value;
+								var expires_in = 0;
+								switch(type){
+									case "Stem":
+										expires_in = 4;
+										break;
+									case "Marrow":
+										expires_in = 5;
+										break;
+									case "Allium":
+										expires_in = 30;
+										break;
+									case "Leafy":
+										expires_in = 5;
+										break;
+									case "Cruciferous":
+										expires_in = 5;
+										
+								}
+								alert("Hey there! That " + input + " expires in " + expires_in + " days.");
+							}
+							else {
+								alert("Hey there! That " + input + " expires on " + optional_expiration.value + ".");
+							}
 							
 			}
 
