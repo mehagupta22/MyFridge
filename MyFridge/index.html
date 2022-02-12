@@ -25,14 +25,14 @@
 						<form action="#">
 							<div class="col gtr-uniform">
 								<div class="col-6 col-12-xsmall">
-									<input type="text" name="demo-name" id="food-item" value="" placeholder="Food Item" />
+									<input type="text" name="demo-name" id="food-item" value="" placeholder="Food Item" required/>
 								</div>
 								<div class="row">
 									<div class="col-6 col-12-xsmall" flex="50">
 										<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" />
 									</div>
 									<div class="col-6 col-12-xsmall" flex="50">
-										<input type="text" name="demo-email" id="food-exp-date" value="" placeholder="Expiration Date" />
+										<input type="text" name="demo-email" id="food-exp-date" value="" placeholder="Expiration Date - optional" />
 									</div>
 								</div>
 								<div>
@@ -454,28 +454,34 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 		<!-- Scripts -->
 			<script>
 				function addExpiration() {
-							var type = document.getElementById("food-type").value;
-							//var input = document.getElementById("input").value; TODO:need variable for input
-							var input = "food";
-							var expires_in = 0;
-							switch(type){
-								case "Stem":
-									expires_in = 4;
-									break;
-								case "Marrow":
-									expires_in = 5;
-									break;
-								case "Allium":
-									expires_in = 30;
-									break;
-								case "Leafy":
-									expires_in = 5;
-									break;
-								case "Cruciferous":
-									expires_in = 5;
-									
+							var optional_expiration = document.getElementById("food-exp-date").value;
+							var input = document.getElementById("food-item").value.toLowerCase();
+							if (optional_expiration==""){
+								var type = document.getElementById("food-type").value;
+								var expires_in = 0;
+								switch(type){
+									case "Stem":
+										expires_in = 4;
+										break;
+									case "Marrow":
+										expires_in = 5;
+										break;
+									case "Allium":
+										expires_in = 30;
+										break;
+									case "Leafy":
+										expires_in = 5;
+										break;
+									case "Cruciferous":
+										expires_in = 5;
+										
+								}
+								alert("Hey there! That " + input + " expires in " + expires_in + " days.");
 							}
-							alert("Hey there! That " + input + " expires in " + expires_in + " days.");
+							else {
+								alert("Hey there! That " + input + " expires on " + optional_expiration + ".");
+							}
+							
 						}
 
 				function saveFoodItem() {
