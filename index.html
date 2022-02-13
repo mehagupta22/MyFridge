@@ -198,19 +198,26 @@
 									expires_in = 35;
 								}
 								var today= new Date();
-								expiration_date = new Date();
-								expiration_date.setDate(today.getDate()+expires_in);
-								var dd = String(expiration_date.getDate()).padStart(2, '0');
-								var mm = String(expiration_date.getMonth() + 1).padStart(2, '0'); //January is 0!
-								var yyyy = expiration_date.getFullYear();
+								var expiration_datetime = new Date();
+								expiration_datetime.setDate(today.getDate()+expires_in);
+								var dd = String(expiration_datetime.getDate()).padStart(2, '0');
+								var mm = String(expiration_datetime.getMonth() + 1).padStart(2, '0'); //January is 0!
+								var yyyy = expiration_datetime.getFullYear();
 								expiration_date = mm + '/' + dd + '/' + yyyy;
+								alert("Hey there! That " + input + " expires on " + expiration_date + ".");
+								if (Math.abs(expiration_datetime - today)<=2431245248){
+									alert("Watch out! That " + input + " expires tomorrow!");
+								}
 							}
 							else{
 								expiration_date = document.getElementById("food-exp-date").value;
-							}
-							
-							alert("Hey there! That " + input + " expires on " + expiration_date + ".");
-							
+								var today= new Date();
+								var expiration_datetime = new Date(expiration_date.slice(6,10),expiration_date.slice(0,2),expiration_date.slice(3,5));
+								alert("Hey there! That " + input + " expires on " + expiration_date + ".");
+								if (Math.abs(expiration_datetime - today)<=2431245248){
+									alert("Watch out! That " + input + " expires tomorrow!");
+								}
+							}			
 			}
 
 			// Global variable to hold all items in the fridge.
