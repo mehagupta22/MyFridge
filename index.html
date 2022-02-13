@@ -36,7 +36,7 @@
 									<input type="text" name="demo-name" id="food-item" value="" placeholder="Food Item" style="margin-top: 1%;" required/>
 								</div>
 								<div class="col-6 col-12-xsmall">
-									<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" style="margin-top: 1%;"/>
+									<input type="text" name="demo-email" id="food-amt" value="" placeholder="Amount" style="margin-top: 1%;" required/>
 								</div>
 								<div class="row" style="margin-top: 1%;">
 									<form action="#" onsubmit="return false;" id="extra-food-info">
@@ -147,10 +147,7 @@
 					if (has_exp=="Yes") {
 						var node = "<div class='col-6 col-12-xsmall' flex='50'>\
 										<input type='text' name='demo-email' id='food-exp-date' value='' placeholder='Expiration Date mm/dd/yyyy' style='margin-top: 1%;'/>\
-									<div/>\
-									<div>\
-										<a href='#' class='button primary' style='margin-top: 1%;' onclick='addExpiration(); saveFoodItem();'>Save food item</a>\
-									</div>";                          
+									<div/>";                          
 						document.getElementById ("food-form").insertAdjacentHTML('beforeEnd', node);
 					}
 					else{
@@ -169,9 +166,6 @@
 										<option value='Leafy'>Leafy Greens - lettuce, spinach</option>\
 										<option value='Cruciferous'>Cruciferous - broccoli, cabbage</option>\
 									</select>\
-								</div>\
-								<div>\
-									<a href='#' class='button primary' style='margin-top: 1%;' onclick='addExpiration(); saveFoodItem();'>Save food item</a>\
 								</div>";                        
 						document.getElementById ("food-form").insertAdjacentHTML('beforeEnd', node);
 					}
@@ -204,19 +198,26 @@
 									expires_in = 35;
 								}
 								var today= new Date();
-								expiration_date = new Date();
-								expiration_date.setDate(today.getDate()+expires_in);
-								var dd = String(expiration_date.getDate()).padStart(2, '0');
-								var mm = String(expiration_date.getMonth() + 1).padStart(2, '0'); //January is 0!
-								var yyyy = expiration_date.getFullYear();
+								var expiration_datetime = new Date();
+								expiration_datetime.setDate(today.getDate()+expires_in);
+								var dd = String(expiration_datetime.getDate()).padStart(2, '0');
+								var mm = String(expiration_datetime.getMonth() + 1).padStart(2, '0'); //January is 0!
+								var yyyy = expiration_datetime.getFullYear();
 								expiration_date = mm + '/' + dd + '/' + yyyy;
+								alert("Hey there! That " + input + " expires on " + expiration_date + ".");
+								if (Math.abs(expiration_datetime - today)<=2431245248){
+									alert("Watch out! That " + input + " expires tomorrow!");
+								}
 							}
 							else{
 								expiration_date = document.getElementById("food-exp-date").value;
-							}
-							
-							alert("Hey there! That " + input + " expires on " + expiration_date + ".");
-							
+								var today= new Date();
+								var expiration_datetime = new Date(expiration_date.slice(6,10),expiration_date.slice(0,2),expiration_date.slice(3,5));
+								alert("Hey there! That " + input + " expires on " + expiration_date + ".");
+								if (Math.abs(expiration_datetime - today)<=2431245248){
+									alert("Watch out! That " + input + " expires tomorrow!");
+								}
+							}			
 			}
 
 			// Global variable to hold all items in the fridge.
