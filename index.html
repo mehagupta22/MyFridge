@@ -51,9 +51,6 @@
 									</form>	
 								</div>
 							</div>
-							<div>
-								<a href="#" class="button primary" style="margin-bottom: 1%;" onclick="addExpiration(); saveFoodItem();">Save food item</a>
-							</div>
 						</form>
 						<!-- Button will lead to recipe generation website -->
 						<li><a button onclick="location.href = 'https://recipegpt.org/';" target="_blank" id="recipeButton" href="#one" class="button primary" style="margin-bottom: 1%;">Make a recipe with what you have!</a></li>
@@ -146,19 +143,31 @@
 					if (has_exp=="Yes") {
 						var node = "<div class='col-6 col-12-xsmall' flex='50'>\
 										<input type='text' name='demo-email' id='food-exp-date' value='' placeholder='Expiration Date mm/dd/yyyy' style='margin-top: 1%;'/>\
-									<div/>";                          
+									<div/>\
+									<div>\
+										<a href='#' class='button primary' style='margin-top: 1%;' onclick='addExpiration(); saveFoodItem();'>Save food item</a>\
+									</div>";                          
 						document.getElementById ("food-form").insertAdjacentHTML('beforeEnd', node);
 					}
 					else{
 						var node = "<div class='col-12'>\
 										<select name='food-type' id='food-type' style='margin-top: 1%;'>\
 										<option value=''>Select Food Type</option>\
+										<option value='Fresh meat'>Fresh meat - steak, beef flank</option>\
+										<option value='Fresh poultry'>Fresh poultry - chicken breast, turkey breast</option>\
+										<option value='Fresh fish'>Fresh fish - salmon, tuna</option>\
+										<option value='Deli meats'>Deli meats - ham</option>\
+										<option value='Eggs'>Eggs</option>\
+										<option value='Berries'>Berries - raspberries, blueberries</option>\
 										<option value='Stem'>Edible plant stem – celery, asparagus</option>\
 										<option value='Marrow'>Marrow – cucumber, zucchini</option>\
 										<option value='Allium'>Allium - garlic, onion</option>\
 										<option value='Leafy'>Leafy Greens - lettuce, spinach</option>\
 										<option value='Cruciferous'>Cruciferous - broccoli, cabbage</option>\
 									</select>\
+								</div>\
+								<div>\
+									<a href='#' class='button primary' style='margin-top: 1%;' onclick='addExpiration(); saveFoodItem();'>Save food item</a>\
 								</div>";                        
 						document.getElementById ("food-form").insertAdjacentHTML('beforeEnd', node);
 					}
@@ -171,22 +180,24 @@
 							var has_exp = document.getElementById("has-exp").value;
 							if (has_exp=="No"){
 								var type = document.getElementById("food-type").value;
-								switch(type){
-									case "Stem":
-										expires_in = 4;
-										break;
-									case "Marrow":
-										expires_in = 5;
-										break;
-									case "Allium":
-										expires_in = 30;
-										break;
-									case "Leafy":
-										expires_in = 5;
-										break;
-									case "Cruciferous":
-										expires_in = 5;
-										
+								if (type=="Fresh poultry"||type=="Fresh fish"){
+									expires_in = 2;
+								}
+								if (type=="Stem"){
+									expires_in = 4;
+								}
+								if (type=="Marrow"||type=="Leafy"||type=="Cruciferous"||type=="Fresh meat"){
+									expires_in = 5;
+								}
+								if (type=="Berries"){
+									expires_in = 14;
+								}
+								if (type=="Allium"){
+									expires_in = 30;
+								}
+								
+								if (type=="Eggs"){
+									expires_in = 35;
 								}
 								var today= new Date();
 								expiration_date = new Date();
@@ -207,7 +218,7 @@
 			// Global variable to hold all items in the fridge.
 			var allFridgeItems = [
 				{foodItem:"eggs", foodAmount: "12", foodExpDate: "02/25/2022"}, 
-				{foodItem:"apples", foodAmount: "2", foodExpDate: "02/20/2022"},
+				{foodItem:"ham", foodAmount: "2", foodExpDate: "02/20/2022"},
 				{foodItem:"milk", foodAmount: "2", foodExpDate: "02/20/2022"}];
 
 			// Initial population of the fridge table with allFridge items.
