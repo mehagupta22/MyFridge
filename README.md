@@ -3,7 +3,7 @@
 ## About
 This is a project for ElleHacks 2022 which took place February 11, 2022, to February 13, 2022.  
   
-Insert image here.  
+![Screenshot](images/UI_Screenshot.png?raw=true "Screenshot") 
   
 Brief description of our project. Can be used commercially (e.g., by restaurants) or for individual households.  
   
