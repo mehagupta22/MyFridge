@@ -139,7 +139,10 @@
 		<!-- Scripts -->
 		<script>
 				var expires_in = 0;//global variable to store when an item expires
+				//Need the following globals for when form resets
 				var expiration_date;
+				var food_item;
+				var amount;
 				function addExpirationInput() {
 
 					var has_exp = document.getElementById("has-exp").value;
@@ -174,7 +177,9 @@
 				}
 				function addExpiration() {
 							var optional_expiration = document.getElementById("has-exp");
-							var input = document.getElementById("food-item").value.toLowerCase();
+							food_item = document.getElementById("food-item").value;//update food item global variable
+							amount = document.getElementById("food-amt").value;//update amount global
+							var input = food_item.toLowerCase();
 							var has_exp = document.getElementById("has-exp").value;
 							if (has_exp=="No"){
 								var type = document.getElementById("food-type").value;
@@ -217,7 +222,9 @@
 								if (Math.abs(expiration_datetime - today)<=2431245248){
 									alert("Watch out! That " + input + " expires tomorrow!");
 								}
-							}			
+							}	
+						var form = document.getElementById ("food-info");
+						form.reset()		
 			}
 
 			// Global variable to hold all items in the fridge.
@@ -253,8 +260,8 @@
 			//Function to save inputted food items.
 			function saveFoodItem() {
 				var foodObj = { 
-					foodItem: document.getElementById("food-item").value ? document.getElementById("food-item").value : '', 
-					foodAmount: document.getElementById("food-amt").value ? document.getElementById("food-amt").value : '', 
+					foodItem: food_item, 
+					foodAmount: amount, 
 					foodExpDate: expiration_date
 				};
 
@@ -267,8 +274,8 @@
 
 			//Function to delete food item.
 			function deleteFoodItem() {
-				var foodItemToDelete = document.getElementById("food-item").value;
-				var amountToDelete = document.getElementById("food-amt").value;
+				var foodItemToDelete = food_item;
+				var amountToDelete = amount;
 				for (var i = 0; i < allFridgeItems.length; i++) {
 					if (allFridgeItems[i].foodItem === foodItemToDelete) {
 						//Case 1: deleting amount is less than remaining.
