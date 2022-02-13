@@ -51,6 +51,10 @@
 									</form>	
 								</div>
 							</div>
+							<div>
+								<a href="#" class="button primary" style="margin-bottom: 1%;" onclick="deleteFoodItem();">Delete food item</a>
+								<a href="#" class="button primary" style="margin-bottom: 1%;" onclick="addExpiration(); saveFoodItem();">Save food item</a>
+							</div>
 						</form>
 						<!-- Button will lead to recipe generation website -->
 						<li><a button onclick="location.href = 'https://recipegpt.org/';" target="_blank" id="recipeButton" href="#one" class="button primary" style="margin-bottom: 1%;">Make a recipe with what you have!</a></li>
@@ -217,18 +221,33 @@
 
 			// Global variable to hold all items in the fridge.
 			var allFridgeItems = [
+				{foodItem:"pie", foodAmount: "1", foodExpDate: "02/17/2022"},
+				{foodItem:"milk", foodAmount: "2", foodExpDate: "02/20/2022"},
 				{foodItem:"eggs", foodAmount: "12", foodExpDate: "02/25/2022"}, 
+				{foodItem:"apples", foodAmount: "2", foodExpDate: "02/20/2022"},
+				{foodItem:"pickles", foodAmount: "1", foodExpDate: "12/01/2022"},
 				{foodItem:"ham", foodAmount: "2", foodExpDate: "02/20/2022"},
 				{foodItem:"milk", foodAmount: "2", foodExpDate: "02/20/2022"}];
 
-			// Initial population of the fridge table with allFridge items.
-			const tbody = document.querySelector('tbody');
-			allFridgeItems.forEach(item => {
-  				const tr = tbody.insertRow();
-  				tr.insertCell().innerText = item.foodItem;
-				tr.insertCell().innerText = item.foodExpDate;
-				tr.insertCell().innerText = item.foodAmount;
-			})
+			populateTable();
+
+			//Function to populate fridge table.
+			function populateTable() {
+				const tbody = document.querySelector('tbody');
+
+				//Clear out previous table entries.
+				document.querySelectorAll("table tbody tr").forEach(function(e){e.remove()})
+
+				//Order table entries so that earliest expiration date is on top.
+				allFridgeItems.sort((a,b) => (a.foodExpDate > b.foodExpDate) ? 1 : (b.foodExpDate > a.foodExpDate) ? -1 : 0);
+
+				allFridgeItems.forEach(item => {
+					const tr = tbody.insertRow();
+					tr.insertCell().innerText = item.foodItem;
+					tr.insertCell().innerText = item.foodExpDate;
+					tr.insertCell().innerText = item.foodAmount;
+				})
+			}
 			
 			//Function to save inputted food items.
 			function saveFoodItem() {
@@ -242,11 +261,27 @@
 				allFridgeItems.push(foodObj);
 
 				//Add new object to fridge table.
-				const tbody = document.querySelector('tbody');
-				const tr = tbody.insertRow();
-				tr.insertCell().innerText = foodObj.foodItem;
-				tr.insertCell().innerText = foodObj.foodExpDate;
-				tr.insertCell().innerText = foodObj.foodAmount;
+				populateTable();
+			}
+
+			//Function to delete food item.
+			function deleteFoodItem() {
+				var foodItemToDelete = document.getElementById("food-item").value;
+				var amountToDelete = document.getElementById("food-amt").value;
+				for (var i = 0; i < allFridgeItems.length; i++) {
+					if (allFridgeItems[i].foodItem === foodItemToDelete) {
+						//Case 1: deleting amount is less than remaining.
+						if (allFridgeItems[i].foodAmount > amountToDelete) {
+							allFridgeItems[i].foodAmount = allFridgeItems[i].foodAmount - amountToDelete;
+							populateTable();
+						}
+						//Case 2: deleting all remaining amount.
+						else {
+							allFridgeItems.splice(i, 1);
+							populateTable();
+						}
+					}
+				}
 			}
 
 		</script>

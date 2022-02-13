@@ -1,11 +1,11 @@
-# MyFridge
+# My eFridge
 
 ## About
 This is a project for ElleHacks 2022 which took place February 11, 2022, to February 13, 2022.  
   
-Insert image here.  
+![Screenshot](images/UI_Screenshot.png?raw=true "Screenshot") 
   
-Brief description of our project. Can be used commercially (e.g., by restaurants) or for individual households.  
+This project is a smart fridge that allows people to manage their fridge inventory to reduce food waste. It can be used commercially (e.g., by restaurants) or for individual households.  
   
 [Check out our web application here!](https://mehagupta22.github.io/MyFridge/)
   
