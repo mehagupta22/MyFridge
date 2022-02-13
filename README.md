@@ -1,4 +1,4 @@
-# MyFridge
+# My eFridge
 
 ## About
 This is a project for ElleHacks 2022 which took place February 11, 2022, to February 13, 2022.  
