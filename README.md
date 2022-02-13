@@ -9,14 +9,16 @@ This project is a smart fridge that allows people to manage their fridge invento
   
 [Check out our web application here!](https://mehagupta22.github.io/MyFridge/)
   
-Access our [Presentation](https://www.canva.com/design/DAE4Gj3QXxY/share/preview?token=mbbr6ODfg2y0uqloGyu-UA&role=EDITOR&utm_content=DAE4Gj3QXxY&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton#5).
+Access our [Presentation](https://www.canva.com/design/DAE4Gj3QXxY/zveM0t-6MDgU7Z8BMEDapw/view?website#4:my-efridge).
 
 ## Next Steps/Future Extensions
+* Add a database to the backend to store fridge contents
 * AI to take photos instead of manually inputting information.
 * Either donate or use foods with upcoming best before dates in recipes.
 * Add a pantry (My eFridge and ePantry).
 
 ## References
+* Information for expiration dates is found [at this FDA website](https://www.foodsafety.gov/keep-food-safe/foodkeeper-app)
 * We used Fractal from html5up as a starting/base template [html5up](https://html5up.net/).
 * We leveraged RecipeGPT for our recipe generator [RecipeGPT](https://recipegpt.org/?fbclid=IwAR0ID9_0-oNQO0b7ekNLennwAMjm6_jgFdvbxLB3yD1ZBOh16UMShcREE0U).
 * Fridge image from [here](https://creazilla.com/nodes/69624-refrigerator-clipart).
